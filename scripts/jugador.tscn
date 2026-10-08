@@ -2,12 +2,73 @@
 
 [ext_resource type="Script" uid="uid://bx6oavoldxlx5" path="res://scripts/jugador.gd" id="1_3br80"]
 [ext_resource type="Texture2D" uid="uid://nlo0vfkxvf1b" path="res://assets/free_assets/characters/c1.png" id="1_wpkjn"]
+[ext_resource type="Texture2D" uid="uid://utls5wgac3p7" path="res://assets/free_assets/shadows/ss3.png" id="2_02gvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkbj5"]
 size = Vector2(9, 3)
 
+[sub_resource type="Animation" id="Animation_3br80"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_02gvo"]
+resource_name = "caminar"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 0]
+}
+
+[sub_resource type="Animation" id="Animation_s10e1"]
+resource_name = "respirar"
+length = 0.39999999999999997
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o72up"]
+_data = {
+&"RESET": SubResource("Animation_3br80"),
+&"caminar": SubResource("Animation_02gvo"),
+&"respirar": SubResource("Animation_s10e1")
+}
+
 [node name="Node2D" type="CharacterBody2D" unique_id=2043229249]
 script = ExtResource("1_3br80")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2036503576]
+position = Vector2(-1, 10)
+texture = ExtResource("2_02gvo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=129552239]
 texture = ExtResource("1_wpkjn")
@@ -17,3 +78,10 @@ vframes = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1408702646]
 position = Vector2(-0.5, 8.5)
 shape = SubResource("RectangleShape2D_jkbj5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1852329131]
+zoom = Vector2(3.5, 3.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1840610765]
+libraries/ = SubResource("AnimationLibrary_o72up")
+autoplay = &"caminar"
