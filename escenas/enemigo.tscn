@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bfn6xcodh4t3r"]
+
+[ext_resource type="Texture2D" uid="uid://bgsyvtafal1db" path="res://assets/free_assets/enemies/e1.png" id="1_sms58"]
+[ext_resource type="Script" uid="uid://cjaokiv1duvwi" path="res://scripts/enemigo.gd" id="1_uhebs"]
+[ext_resource type="Texture2D" uid="uid://dqshibe73e2aj" path="res://assets/free_assets/shadows/ss2.png" id="3_743j8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1h4l"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_uhebs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_743j8"]
+resource_name = "caminar"
+length = 0.39999999999999997
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpq8b"]
+_data = {
+&"RESET": SubResource("Animation_uhebs"),
+&"caminar": SubResource("Animation_743j8")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=311083187]
+platform_floor_layers = 4294901760
+script = ExtResource("1_uhebs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2061878932]
+position = Vector2(-1.1920929e-07, -5.9604645e-08)
+scale = Vector2(0.8333333, 0.9166667)
+texture = ExtResource("1_sms58")
+hframes = 2
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2047807654]
+shape = SubResource("CircleShape2D_t1h4l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=385642307]
+libraries/ = SubResource("AnimationLibrary_hpq8b")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=971893762]
+position = Vector2(0, 11)
+texture = ExtResource("3_743j8")
