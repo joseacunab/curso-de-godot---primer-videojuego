@@ -67,12 +67,6 @@ _data = {
 [node name="Node2D" type="CharacterBody2D" unique_id=2043229249]
 script = ExtResource("1_3br80")
 
-[node name="Gun" parent="." unique_id=69804074 instance=ExtResource("2_s10e1")]
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2036503576]
-position = Vector2(-1, 10)
-texture = ExtResource("2_02gvo")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=129552239]
 texture = ExtResource("1_wpkjn")
 hframes = 6
@@ -88,3 +82,9 @@ zoom = Vector2(3.5, 3.5)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1840610765]
 libraries/ = SubResource("AnimationLibrary_o72up")
 autoplay = &"caminar"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2036503576]
+position = Vector2(-1, 10)
+texture = ExtResource("2_02gvo")
+
+[node name="Gun" parent="." unique_id=69804074 instance=ExtResource("2_s10e1")]

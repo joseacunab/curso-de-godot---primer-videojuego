@@ -24,7 +24,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_743j8"]
 resource_name = "caminar"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -45,7 +45,7 @@ _data = {
 &"caminar": SubResource("Animation_743j8")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=311083187]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=311083187 groups=["enemies"]]
 platform_floor_layers = 4294901760
 script = ExtResource("1_uhebs")
 
