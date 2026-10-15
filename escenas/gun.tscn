@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://6dcnkc7wf3xb"]
+
+[ext_resource type="Texture2D" uid="uid://mdqtdqd0ufk7" path="res://assets/free_assets/weapons/gun.png" id="1_uj1of"]
+
+[node name="Gun" type="Node2D" unique_id=69804074]
+
+[node name="Pivot" type="Marker2D" parent="." unique_id=1435251343]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot" unique_id=75135946]
+position = Vector2(14, 0)
+texture = ExtResource("1_uj1of")
+
+[node name="Marker2D" type="Marker2D" parent="Pivot/Sprite2D" unique_id=503784883]
+position = Vector2(6, 0)
